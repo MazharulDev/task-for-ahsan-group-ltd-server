@@ -15,7 +15,18 @@ const createUser = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const userByEmail = catchAsync(async (req: Request, res: Response) => {
+  const { email } = req.params;
+  const result = await UserService.userByEmail(email);
+  sendResponse<IUser>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User fetch successfully",
+    data: result,
+  });
+});
 
 export const UserController = {
   createUser,
+  userByEmail,
 };

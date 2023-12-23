@@ -6,6 +6,12 @@ const createUser = async (payload: IUser): Promise<IUser> => {
   return result;
 };
 
+const userByEmail = async (email: string): Promise<IUser | null> => {
+  const result = await User.findOne({ email: email });
+  return result;
+};
+
 export const UserService = {
   createUser,
+  userByEmail,
 };
