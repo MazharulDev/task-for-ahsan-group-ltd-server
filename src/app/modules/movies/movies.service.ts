@@ -14,6 +14,12 @@ const createMovie = async (payload: IMovies): Promise<IMovies> => {
   return populatedMovie;
 };
 
+const getAllMovie = async (): Promise<IMovies[] | null> => {
+  const result = await Movie.find({});
+  return result;
+};
+
 export const MovieService = {
   createMovie,
+  getAllMovie,
 };

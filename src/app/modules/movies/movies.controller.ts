@@ -15,7 +15,17 @@ const createMovie = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const getAllMovie = catchAsync(async (req: Request, res: Response) => {
+  const result = await MovieService.getAllMovie();
+  sendResponse<IMovies[]>(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "movie all fetched successfully",
+    data: result,
+  });
+});
 
 export const MovieController = {
   createMovie,
+  getAllMovie,
 };
