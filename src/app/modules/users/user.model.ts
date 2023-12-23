@@ -26,7 +26,12 @@ export const UserSchema = new Schema<IUser, UserModel>(
     phoneNumber: {
       type: String,
     },
-
+    movies: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Movie",
+      },
+    ],
     image: {
       type: String,
     },

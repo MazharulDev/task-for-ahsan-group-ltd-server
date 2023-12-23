@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 import { Model, Types } from "mongoose";
+import { IMovies } from "../movies/movies.interface";
 
 export type IUser = {
   name: string; //embedded object
   email: string;
   password: string;
   image?: string;
+  movies?: Types.ObjectId | IMovies;
   role: string;
   phoneNumber: string;
   id?: string | null;
